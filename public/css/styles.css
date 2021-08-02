@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Georama:wght@300&display=swap');
+
+
+body{
+  background: rgb(255, 233, 236); /* fallback for old browsers */
+  font-family: 'Georama', sans-serif;
+  font-size: 25px;
+}
+
+#quote{
+	margin: 0 auto;
+	width: 600px;
+	height: 100px;
+
+}
+
+.correct{
+	color: rgb(77, 219, 77);
+}
+
+.incorrect{
+	color:lightcoral;
+}
+
+.cursor{
+	background-color:white;opacity: 0.8;
+}
+
+.hidden{
+	display: none;
+}
