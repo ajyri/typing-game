@@ -25,4 +25,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('api/quote','QuoteController@getQuote');
+Route::get('api/randomquote','QuoteController@getRandomQuote');
+
+Route::get('api/quote','QuoteController@getAllQuotes');
+Route::post('api/quote','QuoteController@addQuote');
+Route::get('api/quote/{id}','QuoteController@getQuote');
+Route::patch('api/quote/{id}','QuoteController@update');
+Route::delete('api/quote/{id}','QuoteController@destroy');
