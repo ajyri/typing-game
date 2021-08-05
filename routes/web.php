@@ -21,10 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('api/randomquote','QuoteController@getRandomQuote');
 
 Route::get('api/quote','QuoteController@getAllQuotes');
