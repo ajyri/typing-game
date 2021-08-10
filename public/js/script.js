@@ -51,7 +51,6 @@ async function keyHandler(input) {
 	words = await getQuote();
 	words = words.split(" ").length
 	let characterArray = quoteBody.querySelectorAll('span')
-	characterArray[index].style.background = "white"
 
 	if(input.key.match(regex) && hasStarted == false){
 		hasStarted = true
@@ -81,7 +80,7 @@ async function keyHandler(input) {
 	}
 	if (input.key == characterArray[index].innerText && input.key.match(regex)) {
 		++correctChars
-		characterArray[index].style.color = "#61cc51"
+		characterArray[index].style.color = "white"
 		characterArray[index].style.removeProperty("background")
 		++index
 		characterArray[index].style.background = "white"
@@ -106,7 +105,7 @@ async function keyHandler(input) {
 async function gameStart() {
 	await splitCharacters();
 	let characterArray = quoteBody.querySelectorAll('span')
-	characterArray[0].style.background = "white"
+	characterArray[0].style.background = "rgba(255,255,255,0.7)"
 	document.addEventListener("keydown", keyHandler)
 }
 

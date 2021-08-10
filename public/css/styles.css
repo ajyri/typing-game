@@ -2,7 +2,7 @@
 
 
 body{
-  background: rgb(255, 233, 236); /* fallback for old browsers */
+  background: rgb(253, 217, 221); /* fallback for old browsers */
   font-family: 'Georama', sans-serif;
   font-size: 25px;
   height: 100%;
@@ -69,14 +69,17 @@ body{
 
 #quote{
 	font-size: 50px;
-	color: gray;
+	color: rgba(105, 83, 83, 0.5);
 }
 
 #timer{
 	font-size: 50px;
+	color: white;
 }
 
 ul > li{
 	list-style: none;
 }
+
+
 
