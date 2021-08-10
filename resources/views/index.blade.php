@@ -19,9 +19,8 @@
                         </div>
                         <div id="timer" class="text-center" hidden>0</div>
                         <div id="quote" class="text-center"></div>
-                        <ul id="score" hidden>
-                            <li class="text-center">Correct words: 76</li>
-                            <li class="text-center">WPM: 150</li>
+                        <ul id="score" class="text-center" hidden>
+
                         </ul>
                     </div>
                     </div>
