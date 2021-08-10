@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
-    <script src="{{asset('js/app.js')}}"></script>
     <title>@yield('title')</title>
 </head>
 <nav class= "navbar navbar-expand-lg">
 <div class="container-fluid m-0 p-0">
-		<div class="">
+		<div>
             <a class="navbar-brand" href="{{url('/')}}">Unnamed Typing Game</a>
         </div>
             <ul class="navbar-nav p-0">
@@ -24,6 +23,15 @@
                 </li>
                 @endguest
                 @auth
+                @if (Auth::user()->is_admin)
+                    <li class="nav-item dropdown mr-3" role="button">
+                        <a class="nav-item dropdown-toggle" data-toggle="dropdown">Manage Quotes</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{url('manage')}}">Edit Quotes</a>
+                            <a class="dropdown-item" href="{{url('addquote')}}">Add Quote</a>
+                        </div>
+                    </li>
+                @endif
                 <li class="nav-item mr-3">
                     <a href="{{url('leaderboards')}}">Leaderboards</a>
                 </li>
@@ -45,8 +53,7 @@
                 @endauth
             </ul>
         </div>
-</div>
-
 </nav>
 @yield('content')
+    <script src="{{asset('js/app.js')}}"></script>
 </html>
