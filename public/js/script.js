@@ -19,7 +19,7 @@ let interval
 
 
 function getQuote() {
-	return fetch('api/quote/5')
+	return fetch('api/quote/4')
 		.then(result => result.json())
 		.then(result => text = result.quote)
 }
