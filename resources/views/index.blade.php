@@ -20,8 +20,14 @@
                         <div id="timer" class="text-center" hidden>0</div>
                         <div id="quote" class="text-center"></div>
                         <ul id="score" class="text-center" hidden>
-
+                            <li id="wpm"></li>
+                            <li id="accuracy"></li>
+                            <li id="wordcount"></li>
+                            <li id="time"></li>
                         </ul>
+                        <div class="text-center" hidden>
+                            <button>test</button>
+                        </div>
                     </div>
                     </div>
                 </div>

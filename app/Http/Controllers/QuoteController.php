@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\DB;
 class QuoteController extends Controller
 {
     public function getRandomQuote(){
-        $quotes = json_decode(Quote::all());
+        $quotes = Quote::all();
         $size = count($quotes);
         $randomId = rand(1, $size);
-        $quote = Quote::where('id', '=', "$randomId")->get();
+        $quote = Quote::find($randomId);
         return $quote;
 
     }
