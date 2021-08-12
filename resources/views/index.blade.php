@@ -3,7 +3,7 @@
     Typing Game
 @endsection
 @section('content')
-
+<meta id="csrf-token" content="{{ csrf_token() }}" />
     <body>
             <div class="container h-100">
                 <div class="row align-items-center h-100 justify-content-center">
@@ -15,6 +15,7 @@
                             @endauth
                             @guest
                                 <h1>Results for: Guest</h1>
+                               <p><a href="">Sign in</a> to save and view your scores.</p>
                             @endguest
                         </div>
                         <div id="timer" class="text-center" hidden>0</div>

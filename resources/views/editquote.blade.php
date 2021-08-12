@@ -3,7 +3,7 @@
 
     <body>
         <div class="container-fluid">
-            <form action="{{url("api/quote/$quote->id")}}" method="POST">
+            <form action='{{url("api/quote/$quote->id")}}' method="POST">
                 @method('PATCH')
                 @csrf
             <div class="row">
@@ -31,20 +31,20 @@
                             <label for="author">Quote</label>
                             <textarea type="text" class="form-control" id="quote" name="quote" value="">{{$quote->quote}}</textarea>
                         </div>
-			<div class="row">
+			<div class="row text-center">
 				<div class="col">
 					<button class="btn">Save Changes</button>
+                </form>
                 <form action="{{url("api/quote/$quote->id")}}" method="POST">
                     @method('DELETE')
                     @csrf
 					<button class="btn"> Delete </button>
                 </form>
-				</div>
+                </div>
 
 			</div>
                 </div>
             </div>
-        </form>
         </div>
     </body>
 @endsection

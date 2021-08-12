@@ -6,7 +6,7 @@ const accBody = document.getElementById('accuracy')
 const wordBody = document.getElementById('wordcount')
 const timeBody = document.getElementById('time')
 const userBody = document.getElementById('user')
-
+let token
 let hasStarted = false
 let regex = /(^[a-z A-z]{1}$)|(^\s$)|(^[,.?:;"'-]$)/
 let index = 0
@@ -16,17 +16,34 @@ let startTime
 let wpm
 let words
 let interval
+let accuracy
+let quote
 
+function saveScore(){
+	token = document.querySelector('meta[id="csrf-token"]')['content']
+	
+	fetch('api/savescore', {
+		method: 'post',
+		headers: {
+			'X-CSRF-TOKEN':token,
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({quote_id: quote.id, wpm: wpm, acc:accuracy})
+	})
+	.then(res => res.text())
+	.then(res => console.log(res))
+}
 
 function getQuote() {
-	return fetch('api/quote/4')
+	return fetch('api/randomquote')
 		.then(result => result.json())
-		.then(result => text = result.quote)
+		.then(result => quote = result)
+
 }
 
 async function splitCharacters() {
-	let text = await getQuote();
-	text.split("").map((char) => {
+	quote.quote.split("").map((char) => {
 		const span = document.createElement('span')
 		span.innerText = char
 		quoteBody.appendChild(span)
@@ -47,9 +64,6 @@ function getTimerTime(){
 }
 
 async function keyHandler(input) {
-	console.log(input.key)
-	words = await getQuote();
-	words = words.split(" ").length
 	let characterArray = quoteBody.querySelectorAll('span')
 
 	if(input.key.match(regex) && hasStarted == false){
@@ -64,8 +78,8 @@ async function keyHandler(input) {
 		let delta = endTime - startTime
 		let seconds = delta / 1000
 		let minutes = (seconds / 60).toFixed(2)
-		let wpm = Math.floor((correctChars / 5) / (minutes))
-		let accuracy = Math.floor(100 - (mistakes / characterArray.length)*100)
+		wpm = Math.floor((correctChars / 5) / (minutes))
+		accuracy = Math.floor(100 - (mistakes / characterArray.length)*100)
 		scoreBody.removeAttribute('hidden')
 		userBody.removeAttribute('hidden')
 		timerBody.style.display = 'none'
@@ -76,6 +90,7 @@ async function keyHandler(input) {
 		timeBody.innerHTML = `<li>Total time: ${Math.floor(seconds)} seconds</li>`
 
 		this.removeEventListener('keydown', keyHandler)
+		saveScore()
 		return 
 	}
 	if (input.key == characterArray[index].innerText && input.key.match(regex)) {
@@ -103,7 +118,9 @@ async function keyHandler(input) {
 }
 
 async function gameStart() {
+	await getQuote();
 	await splitCharacters();
+	words = quote.quote.split(" ").length
 	let characterArray = quoteBody.querySelectorAll('span')
 	characterArray[0].style.background = "rgba(255,255,255,0.7)"
 	document.addEventListener("keydown", keyHandler)

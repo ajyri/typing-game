@@ -11,17 +11,16 @@ use Illuminate\Support\Facades\DB;
 class QuoteController extends Controller
 {
     public function getRandomQuote(){
-        $quotes = Quote::all();
-        $size = count($quotes);
-        $randomId = rand(1, $size);
-        $quote = Quote::find($randomId);
+        $quotes = Quote::pluck('id');
+        $randomId = rand(0, count($quotes)-1);
+        $quote = Quote::find($quotes[$randomId]);
         return $quote;
 
     }
 
     public function addQuote(){
         Quote::create(request()->all());
-        return 'Quote added successfully!';
+        return Redirect::route('manage');;
     }
 
     public function destroy($id){
@@ -40,9 +39,14 @@ class QuoteController extends Controller
         return Redirect::route('manage');
     }
 
-    public function getAllQuotes(){
-        $quotes = Quote::all();
-        return $quotes;
+    public function getLeaderboard(){
+        $quotes = DB::table('quote')
+        ->select('quote.id','quote.quote','quote.author','quote.source',DB::raw("count(score.quote_id) AS scores"))
+        ->join('score','quote.id','=','score.quote_id')
+        ->groupBy('quote.id')
+        ->get();
+
+        return view('leaderboard')->with('quotes',$quotes);
     }
 
     public function getQuote($id){

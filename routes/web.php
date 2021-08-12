@@ -21,17 +21,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('api/randomquote','QuoteController@getRandomQuote');
-
-Route::get('api/quote','QuoteController@getAllQuotes');
-
-Route::get('api/quote/{id}','QuoteController@getQuote');
+Route::post('api/savescore', 'ScoreController@saveScore');
 
 Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('manage', 'QuoteController@manageQuotes')->name('manage');
     Route::get('editquote/{id}', 'QuoteController@editQuote');
     Route::get('addquote', 'QuoteController@addQuotePage');
-    Route::post('api/quote','QuoteController@addQuote');
-    Route::patch('api/quote/{id}','QuoteController@update');
-    Route::delete('api/quote/{id}','QuoteController@destroy');
+});
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('leaderboards', 'QuoteController@getLeaderboard');
+    Route::get('viewscore/{id}', 'ScoreController@viewScore');
 });
