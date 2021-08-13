@@ -25,7 +25,7 @@ User id: Käyttäjän id. Tätä hyödynnetään myöhemmin kun haetaan käyttä
 Käyttäjien hallinta tapahtuu täysin Laravel frameworkin tarjoamilla valmiilla ominaisuuksilla. Tietojen tallentaminen ja autentikointi on tätä kautta paljon vaivattomampaa sekä myös turvallisempaa verrattuna jos itse yrittäisin alkaa luomaan autentikointijärjestelmää. Users tietokannassa on myös kohta "is_admin" joka on boolean arvo. Jos tämä arvo on tosi, käyttäjä saa automaattisesti admin oikeudet. Auth middlewarea hyödyntäen käyttäjä ohjataan kirjautumissivulle tai etusivulle jos hänellä ei ole oikeuksia kyseiseen reittiin.
 
 #### Admin käyttäjän oikeudet:
-Admin käyttäjille on lisätty näkymä jossa on CRUD ominaisuudet sitaattien hallintaa varten. Tämä mahdollistaa sitaattien lisäämisen, poiston tai päivityksen tarpeen mukaan.
+Admin käyttäjille on lisätty näkymä jossa on CRUD ominaisuudet sitaattien hallintaa varten. Tämä mahdollistaa sitaattien lisäämisen, poiston tai päivityksen tarpeen mukaan.   
 ![enter image description here](https://i.imgur.com/RKHxcdT.png)
 ![enter image description here](https://i.imgur.com/4wWszLY.png)
 ## Reittien ja tietokannan käsittely
