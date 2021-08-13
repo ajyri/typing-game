@@ -29,7 +29,7 @@ Admin käyttäjille on lisätty näkymä jossa on CRUD ominaisuudet sitaattien h
 ![enter image description here](https://i.imgur.com/RKHxcdT.png)
 ![enter image description here](https://i.imgur.com/4wWszLY.png)
 ## Reittien ja tietokannan käsittely
-Reittien käsittely tapahtuu api.php ja web.php tiedostoissa. Api tiedostoon on lisätty kaikki reitit joista palautetaan tietoa mutta ei ole tarvetta palauttaa erillistä näkymää. Web tiedostossa on kaikki reitit joissa palautetaan käyttäjälle näkymä. Poikkeuksena tässä on 'api/savescore' reitti joka kutsuu ScoreControllerin **saveScore()** funktiota. En saanut api reittien kautta autentikaatiota valitettavasti toimimaan ja en ehtinyt tätä selvittää joten tämä on laiskasti ratkaistu näin.
+Reittien käsittely tapahtuu api.php ja web.php tiedostoissa. Api tiedostoon on lisätty kaikki reitit joista palautetaan tietoa mutta ei ole tarvetta palauttaa erillistä näkymää. Web tiedostossa on kaikki reitit joissa palautetaan käyttäjälle näkymä. Poikkeuksena tässä on 'api/savescore' reitti web.php tiedostossa joka kutsuu ScoreControllerin **saveScore()** funktiota. En saanut api reittien kautta autentikaatiota valitettavasti toimimaan ja en ehtinyt tätä selvittää joten tämä on laiskasti ratkaistu näin.
 
 ### ScoreController
 Tämä kontrolleri vastaa tulosten tallentamisesta sekä yksittäisten tulosten hakemisesta tarkastelua varten.
