@@ -16,10 +16,10 @@ Kuvassa sivuston yksinkertainen tietokantarakenne.
 Sivun käynnistyessä kutsutaan frontendin funktiota **gameStart()** jonka sisällä ensin **getQuote()** funktiota hyödyntäen tehdään backendin QuoteControllerille pyyntö jossa haetaan tietokannasta satunnainen sitaatti. Tämän jälkeen sitaatti katkotaan yksittäisen kirjaimen kokoisiin \<span> elementteihin ja renderöidään ruudulle. Käyttäjän kirjoittaessa \<span> elementin päällä oleva osoitin liikkuu eteenpäin ja kirjaimen väri muuttuu sen mukaan oliko syötetty kirjain oikein vai väärin. Syötettä myös filtteröidään yksinkertaista regexiä hyödyntäen jolloin esim. Numerot ja muut toimintonäppäimet eivät aiheuta syötteitä. 
 Kun käyttäjä on kirjoittanut sitaatin loppuun sitaatti piilotetaan näkyvistä ja esille tuodaan lopputulokset. Tässä vaiheessa frontend tekee pyynnön backendin ScoreControllerille tuloksen tallentamiseksi. Tulos tallennetaan tietokantaan vain jos käyttäjä on kirjautunut sisään. Vieraskäyttäjälle ilmoitetaan tuloksen näytön yhteydessä että hän voi kirjautua sisään tallentaakseen tuloksensa.
 #### Tiedot jotka tallennetaan tietokantaan tuloksesta:
-WPM: Lyhenne termistä "Words Per Minute",  arvio käyttäjän kirjoitusnopeudesta.
-Acc: Käyttäjän tarkkuus kirjoittaessa.
-Quote id: Kirjoitetun sitaatin id. Tätä hyödynnetään myöhemmin kun haetaan käyttäjien tuloksia näytettäväksi.
-User id: Käyttäjän id. Tätä hyödynnetään myöhemmin kun haetaan käyttäjien tuloksia näytettäväksi.
+WPM: Lyhenne termistä "Words Per Minute",  arvio käyttäjän kirjoitusnopeudesta.   
+Acc: Käyttäjän tarkkuus kirjoittaessa.   
+Quote id: Kirjoitetun sitaatin id. Tätä hyödynnetään myöhemmin kun haetaan käyttäjien tuloksia näytettäväksi.   
+User id: Käyttäjän id. Tätä hyödynnetään myöhemmin kun haetaan käyttäjien tuloksia näytettäväksi.   
 
 ## Käyttäjien hallinta ja autentikointi:
 Käyttäjien hallinta tapahtuu täysin Laravel frameworkin tarjoamilla valmiilla ominaisuuksilla. Tietojen tallentaminen ja autentikointi on tätä kautta paljon vaivattomampaa sekä myös turvallisempaa verrattuna jos itse yrittäisin alkaa luomaan autentikointijärjestelmää. Users tietokannassa on myös kohta "is_admin" joka on boolean arvo. Jos tämä arvo on tosi, käyttäjä saa automaattisesti admin oikeudet. Auth middlewarea hyödyntäen käyttäjä ohjataan kirjautumissivulle tai etusivulle jos hänellä ei ole oikeuksia kyseiseen reittiin.
