@@ -5,7 +5,7 @@ Linkki toimivaan työhön: http://159.65.113.135/~jyri/typing-game/public/
 Linkki esittelyvideoon: TBA  
 ## Esittely:
 Harjoitustyön ideana oli rakentaa minimalistinen kirjoituspeli jossa tietokannasta haetaan satunnainen sitaatti jonka käyttäjän pitää kirjoittaa. Kirjoittamisen jälkeen peli kertoo käyttäjälle hänen kirjoitusnopeutensa, tarkkuuden ja lopullisen ajan. Sivustolla on myös kirjautumismahdollisuus. Sisäänkirjautuneiden käyttäjien tulokset tallennetaan tietokantaan ja tuloksia voi sisäänkirjautuneena tarkastella. 
-Frontend on tehty Laravel blade templateja ja javascriptiä hyödyntäen. Sivuston tyylit on tehty Bootstrap kirjastolla ja css:llä. 
+Frontend on tehty Laravel blade templateja ja javascriptiä hyödyntäen. Sivuston tyylit on tehty Bootstrap kirjastolla ja css:llä.      
 Backend on tehty Laravel frameworkilla ja tietokanta on luotu mysql käyttäen.
 Kurssityö sijaitsee itse asentamallani DigitalOceanin palvelimella.
 ## Tietokanta
