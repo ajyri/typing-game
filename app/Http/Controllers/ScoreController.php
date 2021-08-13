@@ -10,6 +10,8 @@ use App\Score;
 class ScoreController extends Controller
 {
 
+    //If the user is logged in save his score to the database.
+
     public function saveScore(Request $request){
         if(Auth::check()){
         
@@ -28,11 +30,10 @@ class ScoreController extends Controller
         
         $score->save();
 
-        return response()->json("Score Saved", 200)
-        ->header('Content-Type', 'application/json');
-        
         }
     }
+
+    //Retrieve scores for a specific quote and return them.
 
     public function viewScore(){
         $id = request('id');

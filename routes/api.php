@@ -24,7 +24,6 @@ Route::get('/quote','QuoteController@getAllQuotes');
 
 Route::get('/quote/{id}','QuoteController@getQuote');
 
-//Route::post('/saveScore','ScoreController@saveScore');
 
 Route::post('/quote','QuoteController@addQuote');
 Route::patch('/quote/{id}',['uses' => 'QuoteController@update']);

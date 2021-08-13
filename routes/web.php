@@ -28,6 +28,8 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('editquote/{id}', 'QuoteController@editQuote');
     Route::get('addquote', 'QuoteController@addQuotePage');
 });
+
+
 Route::group(['middleware' => ['auth']], function(){
     Route::get('leaderboards', 'QuoteController@getLeaderboard');
     Route::get('viewscore/{id}', 'ScoreController@viewScore');

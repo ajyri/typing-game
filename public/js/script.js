@@ -1,3 +1,4 @@
+//Initialize variables.
 const quoteBody = document.getElementById('quote');
 const scoreBody = document.getElementById('score');
 const timerBody = document.getElementById('timer');
@@ -8,7 +9,7 @@ const timeBody = document.getElementById('time')
 const userBody = document.getElementById('user')
 let token
 let hasStarted = false
-let regex = /(^[a-z A-z]{1}$)|(^\s$)|(^[,.?:;"'-]$)/
+let regex = /(^[a-z A-z]{1}$)|(^\s$)|(^[,.?:;"'-]$)/ //Regex for reading only alphabetical characters, whitespace or punctuation marks.
 let index = 0
 let mistakes = 0
 let correctChars = 0
@@ -18,6 +19,7 @@ let words
 let interval
 let accuracy
 let quote
+
 
 function saveScore(){
 	token = document.querySelector('meta[id="csrf-token"]')['content']
@@ -42,6 +44,7 @@ function getQuote() {
 
 }
 
+//Split every character and insert them into a span, then append those spans inside the quote body.
 async function splitCharacters() {
 	quote.quote.split("").map((char) => {
 		const span = document.createElement('span')
@@ -63,6 +66,9 @@ function getTimerTime(){
 	return Math.floor((new Date() - startTime) / 1000)
 }
 
+
+//Read incoming inputs and handle them accordingly.
+
 async function keyHandler(input) {
 	let characterArray = quoteBody.querySelectorAll('span')
 
@@ -70,6 +76,8 @@ async function keyHandler(input) {
 		hasStarted = true
 		startTimer()
 	}
+
+	//If the input happens on the last character in the quote stop the game and calculate the score.
 	if(index == characterArray.length - 1){
 		characterArray[index].style.removeProperty("background")
 		quoteBody.style.display = 'none'

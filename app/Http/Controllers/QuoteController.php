@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class QuoteController extends Controller
 {
+    // Retrieve every quote id into an array and return a random id from that array.
     public function getRandomQuote(){
         $quotes = Quote::pluck('id');
         $randomId = rand(0, count($quotes)-1);
@@ -18,15 +19,18 @@ class QuoteController extends Controller
 
     }
 
+    
     public function addQuote(){
         Quote::create(request()->all());
         return Redirect::route('manage');;
     }
 
+  
     public function destroy($id){
         Quote::find($id)->delete();
         return Redirect::route('manage');
     }
+
 
     public function update($id){
         $quote = Quote::find($id);
@@ -39,6 +43,7 @@ class QuoteController extends Controller
         return Redirect::route('manage');
     }
 
+    //Retrieve quotes and the amount of scores from the database then return them.
     public function getLeaderboard(){
         $quotes = DB::table('quote')
         ->select('quote.id','quote.quote','quote.author','quote.source',DB::raw("count(score.quote_id) AS scores"))
@@ -49,11 +54,7 @@ class QuoteController extends Controller
         return view('leaderboard')->with('quotes',$quotes);
     }
 
-    public function getQuote($id){
-        $quote = Quote::find($id);
-
-        return $quote;
-    }
+    //Functions for managing quotes.
 
     public function addQuotePage(){
         return view('addquote');
