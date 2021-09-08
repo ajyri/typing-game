@@ -1,6 +1,6 @@
 # Web-palvelinohjelmoinnin kurssityö 2021
 Tekijä: Jyri Ahola  
-Linkki projektiin: https://fumo.tech/typing-game/
+Linkki projektiin: https://fumo.tech/typing-game/  
 Linkki lähdekoodiin: https://github.com/ajyri/typing-game
 ## Esittely:
 Harjoitustyön ideana oli rakentaa minimalistinen kirjoituspeli jossa tietokannasta haetaan satunnainen sitaatti jonka käyttäjän pitää kirjoittaa. Kirjoittamisen jälkeen peli kertoo käyttäjälle hänen kirjoitusnopeutensa, tarkkuuden ja lopullisen ajan. Sivustolla on myös kirjautumismahdollisuus. Sisäänkirjautuneiden käyttäjien tulokset tallennetaan tietokantaan ja tuloksia voi sisäänkirjautuneena tarkastella. 
