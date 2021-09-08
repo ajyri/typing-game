@@ -39,7 +39,7 @@ class ScoreController extends Controller
         $id = request('id');
 
         $scores = DB::table('score')
-        ->select('score.quote_id','score.wpm','score.acc','score.user_id','users.name')
+        ->select('score.created_at','score.quote_id','score.wpm','score.acc','score.user_id','users.name')
         ->join('users','score.user_id','=','users.id')
         ->where('score.quote_id', '=', "$id")
         ->orderBy('score.wpm', 'desc','score.acc', 'desc')

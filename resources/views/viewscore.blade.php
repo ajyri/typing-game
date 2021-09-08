@@ -10,6 +10,7 @@
                         <th scope="col">WPM</th>
                         <th scope="col">Accuracy</th>
                         <th scope="col">User</th>
+                        <th scope="col">Score date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,6 +19,7 @@
                             <td>{{ $score->wpm }}</a></td>
                             <td>{{ $score->acc }}</td>
                             <td>{{$score->name}}</td>
+                            <td>{{$score->created_at}}</td>
                         </tr>
                     @endforeach
                 </tbody>

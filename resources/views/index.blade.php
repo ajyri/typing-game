@@ -15,7 +15,7 @@
                             @endauth
                             @guest
                                 <h1>Results for: Guest</h1>
-                               <p><a href="">Sign in</a> to save and view your scores.</p>
+                               <p><a href="{{url('register')}}">Sign in</a> to save and view your scores.</p>
                             @endguest
                         </div>
                         <div id="timer" class="text-center" hidden>0</div>
